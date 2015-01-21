@@ -30,18 +30,23 @@ namespace mathgician {
     }
 
     private static void PrintPrimes() {
-
-      List<int> primes = new List<int> {};
-      int current = 0;
+      int number = 2;
+      List<int> Primes = new List<int> {2};
+      
       while (true) {
-        foreach(var number in primes){
-          if(current % number == 0){
-            System.Threading.Thread.Sleep(100);  
-            System.Console.WriteLine(current);
-            current++;
+        Boolean prime = true;
+        for (int i = 0; i < Primes.Count; i++) {
+          if (number % Primes[i] == 0) {
+            prime = false;
             break;
           }
         }
+      if (prime == true) {
+        System.Threading.Thread.Sleep(100);
+        System.Console.WriteLine(number);
+        Primes.Add(number);
+      }
+        number++; 
       }
       throw new NotImplementedException();
     }
